@@ -1,5 +1,5 @@
 let scene,camera,renderer;
-let cube; 
+let cube;
 
 function doFirst(){
     // 1.建立場景
