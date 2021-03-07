@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue -- v-for 修改陣列或物件的注意事項</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>    
+    <!-- <script src="./js/vue.js"></script> -->    
+</head>
+<body>
+
+    <div id="app"> <!--HTML DOM template-->
+        <!-- 修改陣列 -->
+        <ul>
+            <!-- <li v-for="num in numArray">{{num}}</li> -->
+            <!-- <li v-for="(num,index) in numArray">Index{{index}}: {{num}}</li> -->
+        </ul>
+        <!-- 修改物件 -->
+        <ul>
+            <!-- <li v-for="value in nums">{{value}}</li> -->
+            <!-- <li v-for="(value,key) in nums">{{key}}: {{value}}</li> -->
+        </ul>
+
+        <!-- ****** -->
+        <button @click="action">Click me!</button>
+        <ul>
+            <!-- 陣列 -->
+            <!-- <li v-for="num in numArray">{{num}}</li> -->
+        </ul>
+        <!-- <h1>{{sum}}</h1> -->
+        <ul>
+            <!-- 物件 -->
+            <li v-for="num in nums">{{num}}</li>
+        </ul>
+    </div>
+
+    <script>     
+        new Vue({
+            el: '#app',
+            data: {
+                //陣列
+                numArray: [1,2,3,4,5,6,7,8,9,10],
+
+                //物件
+                nums: {
+                    x: 5,
+                    y: 10,
+                    z: 15,
+                },
+                sum: 0,
+            },
+            methods: {
+                action(){
+                //將數字render到<li>
+                //陣列
+                    // this.numArray.push(this.numArray.length + 1);
+                    // this.numArray.pop();
+                    // this.numArray.unshift(this.numArray.length + 1);
+                    // console.log(this.numArray.shift());
+
+                    // this.numArray.splice(index);            //刪除
+                    // this.numArray.splice(index,刪除的筆數);  //刪除
+                    // this.numArray.splice(index,刪除的筆數,100,200,300);  //新增
+                    // this.numArray.splice(5);   
+                    // this.numArray.splice(5,1);   
+                    // this.numArray.splice(5,0,100,200,300);  
+
+                    // this.numArray.sort(); 
+                    // this.numArray.reverse(); 
+
+                //filter
+                    // 傳回值 = this.numArray.filter(function(data){篩選資料的條件});
+                    // this.numArray = this.numArray.filter(function(data){
+                    //     return data % 2 == 0;
+                    // });
+                    // this.numArray = this.numArray.filter(data => data % 2 == 0);
+                    // this.numArray = this.numArray.filter(data => data > 5);
+
+                //map
+                    // 傳回值 = this.numArray.map(function(data){逐個處理，傳回結果});
+                    // 傳回值 = this.numArray.map(function(data){逐個處理，傳回結果});
+                    // this.sum = this.numArray.map(function(data){
+                    //     return data * 5;
+                    // });
+                    // this.sum = this.numArray.map(data => data * 5);
+
+                //reduce
+                    // 傳回值 = this.numArray.reduce(function(accmulator,data)){逐個處理，每次處理的結果會丟進累計器中});
+                    // this.sum = this.numArray.reduce((total,num) => total + num);
+
+                    //修改陣列內容
+                    // this.numArray[2] = 100;          //不行
+                    // this.numArray.splice(2,1,100);   //可以
+
+                    //清空陣列
+                    // this.numArray.length = 0;        //不行
+                    // this.numArray.splice(0);         //可以
+
+                    // 傳回值 = this.numArray.slice(index from,index to);
+                    // 傳回值 = this.numArray.slice(index begin,index end);
+                    // this.numArray = this.numArray.slice(2, 5);
+
+                //物件
+                    // 增加新成員 key/value
+                    // this.nums.A = 100;        //不可增加
+                    // this.nums.x = 500;        //可以修改
+
+                    // this.$set(物件,'key',value);
+                    this.$set(this.nums,'A',100);   //這樣才可以新增資料到物件中
+                },
+            },
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: switch</title>      
+</head>
+<body>
+    <script>
+        window.onload = function(){ 
+            let month = 'September';
+            
+            switch(month){
+                case 'January':
+                case 'March':
+                case 'May':
+                case 'July':
+                case 'August':
+                case 'October':
+                case 'December':
+                    document.write('該月份有31天<br>');
+                    break;
+                
+                case 'April':
+                case 'June':
+                case 'September':
+                case 'November':
+                    document.write('該月份有30天<br>');
+                    break;
+                
+                default:
+                    document.write('該月份有29天<br>');
+            }//end of switch
+        }
+    </script>
+</body>
+</html>

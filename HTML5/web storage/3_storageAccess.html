@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Storage Access</title>
+    <style>
+        label{
+            width: 50px;
+            float: left;
+        }
+        label,button{
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <label>key</label>
+        <input type="text" id="keyText">
+    </p>
+    <p>
+        <label>value</label>
+        <input type="text" id="valueText">
+    </p>
+    <hr>
+    <button onclick="storageAccess(1)">Set item</button>
+    <button onclick="storageAccess(2)">get item</button>
+    <button onclick="storageAccess(3)">remove item</button>
+    <button onclick="storageAccess(4)">clear all</button>
+
+    <script>
+        function storageAccess(accessId){
+            let storage = sessionStorage;
+            let key = document.getElementById('keyText').value;
+            let value = document.getElementById('valueText').value;
+            // alert(`${key} : ${value}`);
+            alert(storage.length);
+
+            switch(accessId){
+                case 1: 
+                    storage.setItem(key,value);
+                    break;
+                case 2: 
+                    let item = storage.getItem(key);
+                    alert(item);
+                    break;
+                case 3: 
+                    storage.removeItem(key);
+                    break;
+                case 4: 
+                    storage.clear();
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

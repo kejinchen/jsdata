@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript:型態</title>    
+</head>
+<body>
+    <!-- 
+        JS的基本型態
+        1.簡單型態: Number, Math, String, Boolean
+            var num = 5;        //Number
+            var str = 'ABC';    //String
+            var ans = true;     //Boolean
+
+        2.複雜型態: Array, Date, RegExp, Object...
+            var arr = [2,4,6,'ABC',true];
+    -->
+
+        
+    <script>
+        var num = 1234.567;  //Number
+        //JS的型態稱為「內建物件」
+        //JS只要是物件，就有屬性(名詞或形容詞)和方法/函數(動詞)可以使用
+        //Number有一個方法: toFixed() 小數點後幾位
+        
+        document.write(num.toFixed(2) + '<br>');  
+        document.write(`${num.toFixed(2)}<br>`);
+        document.write(Math.PI + '<br>');
+        document.write(`${Math.PI.toFixed(4)}<br>`);
+
+        document.write(Math.round(num) + '<br>');
+        document.write(parseInt(num) + '<br>');
+        document.write(Math.round(num * 100) /  100 + '<br>');
+        document.write(parseInt(num * 100) / 100 + '<br>');
+
+
+
+    </script>
+</body>
+</html>

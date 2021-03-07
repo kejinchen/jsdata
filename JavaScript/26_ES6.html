@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: ES6 New Features</title>      
+</head>
+<body>    
+    <script>
+    1.var | let | const 
+       for(var i = 0; i < 5; i++){
+           console.log(i);
+       }
+       console.log(i);  //√
+       0
+       1
+       2
+       3
+       4
+       5
+       ---------------
+
+       for(let j = 0; j < 5; j++){
+           console.log(j);
+       }
+       console.log(j);  //XX
+       0
+       1
+       2
+       3
+       4
+       Uncaught ReferenceError: j is not defined at <anonymous>:4:20
+       ---------------
+       const x = 100;
+       x = 50;  //XX 不能被reassign
+       ---------------
+
+        const y = {a:5};
+        console.log(y)    //√
+        執行結果: {a: 5}
+        y.a = 10;
+        console.log(y)
+        執行結果: {a: 10}
+        ---------------
+
+        #hosting (提升)
+        test();                 //先執行該函數
+        function test(){.....}  //補宣告函數
+        ---------------
+        temp += 1;
+        var temp = 10;
+        ---------------
+        let 和 const 不能先執行再補宣告
+======================================
+    2.object shorthand 物件縮寫
+        (1).屬性縮寫
+            function givePoint(x,y) {
+                return {
+                    x: x,
+                    y: y,
+                };
+            }
+            const point = givePoint(100,200);
+            console.log(point);
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            function givePoint(x,y) {
+                return {
+                    x,
+                    y,
+                };
+            }
+            ---------------
+            function createObject(key, value) {
+                const obj = {};  //const obj = new Object();
+                obj[key] = value;
+
+                return obj;
+            }
+
+            const person = createObject('name','Peter');
+            console.log(person);
+            執行結果: {name: "Peter"}
+
+            const dog = createObject('legs',4);
+            console.log(dog);
+            執行結果: {legs: 4}
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            # 屬性可以計算
+            function createObject(key, value){
+                const obj = {
+                    [key + 1]: value,   //重點在這行
+                };
+
+                return obj;
+            }
+
+            const male = createObject('name','Peter');
+            console.log(male);
+            執行結果: {name1: "Peter"}
+
+        (2).函數縮寫
+            const options = {
+                name: 'Peter',
+                age: 20,
+                created: function(){
+                    console.log('created');                    
+                },
+                mounted: function(){
+                    console.log('mounted');                    
+                }
+            };
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            const options = {
+                name: 'Peter',
+                age: 20,
+                created(){
+                    console.log('created');                    
+                },
+                mounted(){
+                    console.log('mounted');                    
+                }
+            };
+    
+======================================
+    3.destructuring assignment 解構賦值  
+        (1).陣列解構
+            const nums = [2,4,6];
+            const firstNum = nums[0];
+            const secondNum = nums[1];
+            console.log(firstNum);      //2
+            console.log(secondNum);     //4
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            const nums = [2,4,6];
+            const[firstNum,secondNum] = nums;
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            const nums = [2,4,6];
+            const[firstNum,secondNum,thirdNum,forthNum] = nums;
+            console.log(firstNum);  //2
+            console.log(secondNum); //4
+            console.log(thirdNum);  //6
+            console.log(forthNum);  //undefined
+
+            console.log(firstNum+secondNum+thirdNum+forthNum);  // NaN
+
+            陣列解構的同時
+            # 可以給預設值
+            const nums = [2,4,6];
+            const[firstNum,secondNum,thirdNum,forthNum=100] = nums;
+
+            console.log(firstNum+secondNum+thirdNum+forthNum);  // 112
+
+            # 可以忽略部分的元素
+            const nums = [2,4,6];
+            let[,x] = nums;  //只想取第二個值
+            console.log(x);  //4
+
+            # swap(將變數值互換)
+            let x = 5;
+            let y = 10;
+            [x, y] = [y, x];
+            console.log(x);  //10
+            console.log(y);  //5
+
+            # 處理剩下的部分
+            const nums = [2,4,6,8,10];
+            let [arr,...others] = nums;
+            console.log(arr);       //2
+            console.log(others);    //4,6,8,10
+
+        (2).物件解構
+            # 可以給預設值
+            let point = {
+                x: 100,
+                y: 200,
+            };
+            let x = point.x;    //100
+            let y = point.y;    //200
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            let point = {
+                x: 100,
+                y: 200,
+            };
+            let {x, y, z=10} = point;
+
+        (3).方法(函數)參數的解構
+            let point = {
+                x: 100,
+                y: 200,
+            };
+            function distance(point) {
+                return Math.sqrt(point.x * point.x + point.y * point.y);
+            }
+
+            let ans = distance(point);
+            console.log(ans);   //223.60679774997897
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            let point = {
+                x: 100,
+                y: 200,
+            };
+            function distance(point){
+                const {x, y} = point;
+                return Math.sqrt(x * x + y * y);
+            }
+            let ans = distance(point);
+            console.log(ans);   //223.60679774997897
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            let point = {
+                x: 100,
+                y: 200,
+            };
+            function distance({x, y}){  //直接在函數參數做解構                
+                return Math.sqrt(x * x + y * y);
+            }
+            let ans = distance(point);
+            console.log(ans);   //223.60679774997897
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            let point = {
+                x: 100,
+                y: 200,
+            };
+            function distance({x = 0, y = 0}){  //直接在函數參數做解構，並給初值
+               return Math.sqrt(x * x + y * y);
+            }
+            let ans = distance(point);
+            console.log(ans);   //223.60679774997897
+
+======================================
+    4.string template 字串模板(使用backtick反引號)
+        (1).字串串接
+            參考 26_ES6_2_templateLiterals.html
+
+        (2).插入表達式(expression)
+            statement(敘述 | 陳述式)與expression(條件判斷 | 表達式)
+            - statement
+                break;
+                if(expression){....}else{....}
+                while(expression){....}
+                switch(){....}
+
+            - expression
+                1 + 2
+                5 > 3
+            ---------------
+            function greeting(name, days) {
+                let hours = days * 24;
+                console.log(`Hello, ${name}! It has been ${hours} hours.`);
+            }
+            greeting('Peter', 2);
+            執行結果: Hello, Peter! It has been 48 hours.
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            function greeting(name, days) {
+                console.log(`Hello, ${name}! It has been ${days * 24} hours.`);
+            }
+            greeting('Peter', 2);
+            執行結果: Hello, Peter! It has been 48 hours.
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            function greeting(name, days) {
+                console.log(`Hello, ${name}! ${(days < 3) ? '':'It has been a long time since I saw you last.'}`);
+            }
+            greeting('Peter', 2);
+            執行結果: Hello, Peter! 
+            greeting('Steve', 5);
+            執行結果: Hello, Steve! It has been a long time since I saw you last.
+
+        (3).多行字串
+            let longString = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'+
+            ' Repellat cupiditate eaque architecto? Eligendi labore autem molestiae totam'+
+            ' impedit aliquam fuga vero beatae. Nisi sed magnam ipsam explicabo nesciunt!'+
+            ' Nulla fugiat voluptatibus, doloremque ex sint soluta quae, tenetur labore '+
+            'reiciendis officia blanditiis neque porro maiores voluptatem magni laudantium ab quo dolor!';
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            let longString = `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+             Fugit eligendi obcaecati, itaque porro, nostrum officia eveniet magnam 
+             temporibus cum minima possimus velit architecto voluptas non harum! 
+             Eum tenetur maxime aliquam, esse accusamus commodi, officia ut labore 
+             molestiae consequatur reiciendis molestias non voluptatum, sunt quisquam 
+             laborum voluptate velit animi est. Dicta?
+            `;
+            
+======================================
+    5. arrow function 箭頭函數
+        //更簡短宣告以及定義函數的方式        
+        (1).宣告方式
+            //ES5
+            let ans = function multi(x) {
+                return x * 2;
+            }
+
+            //ES6
+            let ans = (x) => {
+                return x * 2;
+            }
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            let ans = (x) =>  x * 2;
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            let ans = x =>  x * 2;
+
+            如果傳遞的參數不只一個或沒有傳遞參數，()不能省略。
+            ex.
+            myArray.map(function(first,last) {
+                return first + last;
+            });
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            myArray.map((first,last) => {
+                return first + last;
+            });
+
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            myArray.map((first,last) => first + last );
+
+            (2).簡化語法
+            - 如果傳遞的參數不只一個或沒有傳遞參數，()不能省略。
+            - 傳遞的參數只有一個，()可以省略。
+            - 內容只有一個敘述(傳回值)，可以省略成一行(可以去除{})。
+            
+            theButton.addEventListener('click',function(){console.log(100);});
+            
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            theButton.addEventListener('click',() => console.log(100););
+            
+            //參考26_ES6_3_arrowFunction.html
+
+        (3).自動綁定
+        (4).this
+======================================
+    6. spread operator
+        //參考26_ES6_4_spreadOperator.html
+======================================
+    7. classes 自訂內建物件
+
+======================================
+    8. inheritance 繼承
+
+======================================
+    9. generators 產生器
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <style>
+            #talk{
+                height: 200px;
+                width: 200px;
+            }
+        </style>
+		<script src="./js/jquery-3.5.1.js"></script>
+		<script>
+			$(document).ready(function(){
+                $('#talk').scroll(function(){
+                    // $('#feedback').text('You have scrolled.');
+
+                    // let scroll_pos = $(this).scrollTop();
+                    // $('#feedback').text(`You have scrolled, and are at position ${scroll_pos}`);
+
+                    // 加上CSS之後
+                    let scroll_pos = $(this).scrollTop();
+                    $('#feedback').text(`Currently at position ${scroll_pos}`);
+                });
+			});			
+		</script>
+	</head>
+	<body>
+        <!-- lorem150 -->
+        <textarea id="talk" cols="30" rows="10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint labore itaque error incidunt reprehenderit perspiciatis, non quo deserunt illo quos repudiandae unde blanditiis, neque voluptates maiores sunt ullam aperiam eaque autem ab at! Aut porro earum qui similique voluptatem totam, explicabo praesentium blanditiis alias tempore, cum, incidunt voluptatibus beatae nihil modi provident sapiente error deserunt esse ipsum harum. Sapiente, porro. Qui itaque incidunt accusantium quas est eum facere, laborum officiis. Repudiandae quia ducimus nisi placeat est aliquam exercitationem tempora, debitis unde quidem consequuntur distinctio qui ratione nobis ipsa eligendi, ad delectus molestiae rerum nam obcaecati. Repellendus rerum deserunt sed. Tempore quod fugiat tempora, ipsa voluptas repellat eligendi beatae soluta, eum inventore quidem. Est id eum repudiandae. Impedit eum libero, at quidem illum similique ipsa est, animi, sed odit perspiciatis iusto quas recusandae ducimus accusantium soluta amet itaque dolor asperiores placeat saepe! Officiis ab porro velit accusamus facere, aliquid pariatur nam.</textarea>
+        <p id="feedback"></p>
+    </body>
+</html>

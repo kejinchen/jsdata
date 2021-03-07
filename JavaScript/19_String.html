@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: String 物件</title>      
+</head>
+<body>
+    1. 建立字串物件
+        let fullName = 'Silvia Huang';
+        let fullName = new String('Silvia Huang');
+
+        let temp = '';
+        let temp = new String();
+    
+    2. 屬性: length
+        <!--HTML-->
+        <input type="email" id="email" value="">  
+        <!-- JS -->
+        let email = document.getElementById('email');
+        if(email.value.length > 0){...}
+
+    3. 方法: 
+        - 拆分 
+            charAt(index)
+            indexOf(字串)
+            lastIndexOf()
+            slice(index[,index]) 從字串中找出子字串
+            substr(index, count) 從字串中找出子字串
+
+        - 操作字串
+            concat()
+            toLowerCase()
+            toUpperCase()
+            split() 字串切割成陣列
+            toString() 將物件轉成字串
+            replace(子字串，欲取代的字串)
+    
+    4. 跳脫字元
+        - \n  | \r\n    換行
+        - \t
+        - \\
+        - \'
+        - \"
+    5.字串
+    <script>
+        window.onload = function(){
+            let fullName = 'Silvia Huang';
+
+            // document.write('Length: ' + fullName.length + '<br>');
+            document.write(`Length: ${fullName.length}<br>`);
+            document.write(`charAt(index): ${fullName.charAt(11)}<br>`);
+            document.write(`charAt(index): ${fullName.charAt(fullName.length-1)}<br>`);
+            
+            document.write(`indexOf(): ${fullName.indexOf('Huang')}<br>`);
+            document.write(`indexOf(): ${fullName.indexOf('huang')}<br>`);
+            document.write(`indexOf(): ${fullName.indexOf('a')}<br>`);
+            document.write(`indexOf(): ${fullName.lastIndexOf('a')}<br>`);
+            document.write(`<hr>`);
+
+            let language = 'JavaScript';
+            document.write(`slice(): ${language.slice(4)}<br>`);
+            document.write(`slice(): ${language.slice(0,4)}<br>`);
+            document.write(`slice(): ${language.slice(0,-6)}<br>`);
+            document.write(`slice(): ${language.slice(-6)}<br>`);
+            document.write(`substr(): ${language.substr(0,4)}<br>`);
+            document.write(`<hr>`);
+
+            let address = '2215 NE 68th. st';
+            document.write(`${address.concat(' Seattle',' WA ',98115)}<br>`);
+            document.write(`${address.concat(' TEL: ','(206)523-5480')}<br>`);
+            document.write(`${address.concat('<br>Seattle',' WA ',98115).concat('<br>TEL: ','(206)523-5480')}<br>`);
+            document.write(`<hr>`);
+
+            language = 'JavaScript';
+            document.write(`indexOf(): ${language.indexOf('Script')}<br>`);
+            document.write(`indexOf(): ${language.indexOf('script')}<br>`);
+            document.write(`indexOf(): ${language.toLowerCase().indexOf('script')}<br>`);
+            document.write(language);
+            document.write(`<hr>`);
+
+            let months = 'Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec';
+            let monthsArray = months.split(', ');   //monthsArray是陣列
+
+            console.log(monthsArray); //["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+            for(let i=0; i<monthsArray.length; i++){
+                document.write(`${monthsArray[i]}<br>`);
+            }
+
+            document.write(`<hr>`);
+            document.write(`${parseInt('1234.567')} <br>`);
+            document.write(`${parseInt('1234.567',10)} <br>`);
+            document.write(`${parseInt('I saw 20 ducks.')} <br>`);
+            document.write(`${parseInt('200 ducks.')} <br>`);
+            document.write(`${parseInt('200 ducks.') * 5} <br>`);
+            document.write(`<hr>`);
+
+            let total = 1000;
+            document.write(`Your total is ${total.toString()}<br>`);
+
+            // null 和 undefined
+            // null        --->  可以當成數值來運算   (null * 0  ---> 0)
+            // undefined   --->  不可以當成數值來運算 (undefined * 0 ---> NaN)
+            document.write(`<hr>`)
+            //印出 I've got an idea.
+            document.write('I\'ve got an idea.<br>');
+            document.write("I've got an idea.<br>");
+
+            //印出 Chapter 5 : "Simple String"
+            document.write('Chapter 5 : "Simple String"<br>');
+            document.write("Chapter 5 : \"Simple String\"<br>");
+
+            alert('I\'ve got an idea.\n');
+        }
+    </script>
+</body>
+</html>

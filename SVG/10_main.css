@@ -1,0 +1,31 @@
+svg{
+    width: 250px;
+    height: 250px;
+    border: 2px solid;
+}
+#svg1{
+    stroke: red;
+    stroke-width: 5px;
+    fill: none;
+}
+
+#svg2{
+    stroke: green;
+    stroke-width: 5px;
+    fill: none;
+}
+#svg2 circle{
+    stroke: orange;
+}
+#svg2 line{
+    stroke: green;
+}
+
+#svg3{
+    stroke: maroon;
+    stroke-width: 2px;
+    fill: maroon;
+}
+#svg3 polyline{
+    fill: none;
+}

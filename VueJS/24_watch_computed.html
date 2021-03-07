@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue -- watch & computed</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>    
+    <!-- <script src="./js/vue.js"></script> -->    
+</head>
+<body>
+
+    <div id="app"> <!--HTML DOM template-->
+       <input v-model="X"> + 
+       <input v-model="Y"> = 
+       <input v-model="Z">
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {         // 變數存放的地方
+                X: 0,
+                Y: 0,
+                // Z: 0,
+            },
+            methods: {},
+            computed: {
+                Z(){
+                    return parseInt(this.X) + parseInt(this.Y);
+                },
+            },
+            watch: { 
+                // X(newValue){
+                //     this.Z = parseInt(newValue) + parseInt(this.Y);
+                // },
+                // Y(newValue){
+                //     this.Z = parseInt(this.X) + parseInt(newValue);
+                // },
+            },
+        });
+    </script>
+</body>
+</html>

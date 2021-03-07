@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: 隨機印出1-100之間的數值</title>    
+</head>
+<body>
+    <!-- 
+        公式: parseInt(Math.random() * 總個數) + 最小值
+
+        例如: 介於1 ~ 100之間
+             parseInt(Math.random() * 100) + 1
+
+             介於-5 ~ 5之間
+             parseInt(Math.random() * 11) - 5
+
+             介於1 ~ 42之間
+             parseInt(Math.random() * 42) + 1
+
+        Math.random()  ==> 0 ~ 0.9999999
+        介於-5 ~ 5之間
+        Math.random() * 11                  ==> 0 ~ 10.99999
+        parseInt(Math.random() * 11)        ==> 0 ~ 10
+        parseInt(Math.random() * 11) - 5    ==> -5 ~ 5
+
+    -->
+
+        
+    <script>
+        var num = parseInt(Math.random() * 11) - 5;
+       
+        document.write(num + '<br>');
+
+
+
+    </script>
+</body>
+</html>

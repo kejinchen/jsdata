@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+		<link rel="stylesheet" href="css/style.css">
+		<script src="./js/jquery-3.5.1.js"></script>		
+		<script>
+			$(document).ready(function(){				
+				// $('p span').mouseenter().mouseleave();
+				// $('p span').mouseenter(function(){}).mouseleave(function(){});
+				/*===
+				$('p span').mouseenter(function(){
+					$(this).addClass('highlight');
+				}).mouseleave(function(){
+					$(this).removeClass('highlight');
+				});
+				===*/
+
+				// $('p span').bind().bind();
+				// $('p span').bind('mouseenter',function(){}).bind('mouseleave',function(){});
+				/*===
+				$('p span').bind('mouseenter',function(){
+					$(this).addClass('highlight');
+				}).bind('mouseleave',function(){
+					$(this).removeClass('highlight');
+				});
+				===*/
+
+				// $('p span').bind();
+				// $('p span').bind('mouseenter mouseleave',function(){});
+				/*===
+				$('p span').bind('mouseenter mouseleave',function(){
+					$(this).toggleClass('highlight');
+				});
+				===*/
+
+				/*===			
+				$('p span').on('mouseenter mouseleave',function(){
+					$(this).toggleClass('highlight');
+				});
+				===*/
+
+				// $(document).on('事件',物件,處理函數);
+				$(document).on('mouseenter mouseleave','p>span',function(){
+					$(this).toggleClass('highlight');
+				});
+			});		al	
+		</script>
+	</head>
+	<body>
+		<p><span>Lorem ipsum dolor sit amet.</span></p>
+	</body>
+</html>

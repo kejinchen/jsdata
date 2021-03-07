@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue component -- 動態決定要出現哪個組件</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>    
+    <!-- <script src="./js/vue.js"></script> -->    
+</head>
+<body>
+    <!-- 動態組件: 先定義好每一個組件，透過條件判斷來決定出現哪一個組件 -->
+    <div id="app"> <!--HTML DOM template-->
+        <button @click="content='lessons'">Lessons</button>
+        <button @click="content='apply'">Apply</button>
+        <button @click="content='date'">Date</button>
+
+        <component :is="content"></component>
+        <!-- 透過component元素，去指定其屬性is進行v-bind -->
+    </div> 
+
+    <script>
+        Vue.component('lessons', { 
+            template: `
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>jQuery</li>
+                    <li>HTML5</li>
+                    <li>VueJS</li>
+                </ul>
+            `,
+        });
+
+        Vue.component('apply', { 
+            template: `
+                <form>
+                    <p>
+                        <textarea></textarea>
+                    </p>
+                    <button>Submit</button>
+                </form>
+            `,
+        });
+
+        Vue.component('date', { 
+            template: `
+                <p>
+                    <input type="checkbox"> Morning  
+                    <input type="checkbox"> Afternoon  
+                    <input type="checkbox"> Evening
+                </p>
+            `,
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                content: 'lessons',
+            },
+        });
+    </script>
+</body>
+</html>

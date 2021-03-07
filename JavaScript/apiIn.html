@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="./apiIn.js"></script>
+    <script>
+        // console.log(apiIn);
+        // console.log(apiIn[99]);
+        console.log(apiIn[0].ParkName);
+        console.log(apiIn[0].Name);
+        console.log(apiIn[0].OpenTime);
+        console.log(apiIn[0].Image);
+
+        let image = document.createElement('img');
+        image.src = apiIn[0].Image;
+
+        document.body.appendChild(image);
+    </script>
+</body>
+</html>

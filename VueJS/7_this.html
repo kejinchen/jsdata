@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <!-- <script src="./js/vue.js"></script> -->
+</head>
+<body>
+    <div id="app"> <!--HTML DOM template-->
+        <h3>Classmate</h3>
+        <ol>
+            <li v-for="item in classmate" @click="ED103(item.name)">{{item.name}}</li>
+        </ol>
+    </div>
+
+    <script>
+        // function test(){
+        //     alert(this);
+        // }
+        // test();   //this代表window物件
+
+        // // this代表function執行當下的外層物件，所以this在執行的時候才會存在
+
+        // let data = {
+        //     name: 'Peter',
+        //     age: 40,
+        //     check(){
+        //         alert(this);
+        //     },
+        // };
+        // data.check();  //this代表data物件
+
+
+        new Vue({  //this代表Vue instance(實例)
+            el: '#app',     
+            data: {         // 變數存放的地方
+                message: 'Hello',
+                classmate: [{name:'Anan',age:15},{name:'Bella',age:16},{name:'Cathy',age:23},{name:'Dale',age:22}],
+            },
+            methods: {      // 函數放這裡
+                ED103(yourName){
+                    alert(`${this.message} ${yourName}!`);
+                    alert(this.$el);
+                    alert(this.temp);
+                    alert(this.$data.message);
+                },
+                temp(){},
+            },
+        });
+    </script>
+    
+</body>
+</html>

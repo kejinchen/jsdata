@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <!-- <script src="./js/vue.js"></script> -->
+</head>
+<body>
+    <div id="app"> <!--HTML DOM template-->
+        <ul>
+            <li v-for="color in colors">{{color}}</li>
+        </ul>
+        <ol>
+            <li v-for="item in classmate">{{item.name}}</li>
+        </ol>
+        <table border="1">
+            <tr>
+                <td v-for="item in classmate">{{item.name}}</td>
+            </tr>
+            <tr>
+                <td v-for="item in classmate">{{item.age}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',     
+            data: {         // 變數存放的地方
+                message: 'Hello VueJS!',
+                colors: ['red','orange','yellow','green','blue','indigo','violet'],
+                classmate: [{name:'Anan',age:15},{name:'Bella',age:16},{name:'Cathy',age:23},{name:'Dale',age:22}],
+            },
+        });
+    </script>
+    
+</body>
+</html>

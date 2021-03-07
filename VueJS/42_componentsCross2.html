@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue component -- 組件之間的溝通 </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>    
+    <!-- <script src="./js/vue.js"></script> -->    
+</head>
+<body>
+    <!-- 如果組件之間沒有上下層的關係(沒有直接的關係)，要如何溝通?
+        1. 將會影響彼此的值，放在new Vue() -- 41_componentsCross1.html
+        2. event bus -- 42_componentsCross2.html
+            透過共同的event bus:
+            一個組件發出自訂事件: bus.$emit('自訂事件')
+            另一個組件聆聽該事件: bus.$on('自訂事件',callback)
+        3. Vuex
+    -->
+    <div id="app"> <!--HTML DOM template-->  
+        <my-button></my-button>
+        <my-counter></my-counter>
+    </div> 
+
+    <script> 
+
+        const bus = new Vue();
+
+        Vue.component('my-button',{
+            // template: `<button>Add</button>`,
+            template: `<button @click="clicked">Add</button>`,
+            methods: {
+                clicked(){
+                    bus.$emit('add'); //自訂事件名稱
+                },
+            },
+        });
+
+        Vue.component('my-counter',{
+            data(){
+                return {
+                    count: 0,
+                };
+            },
+            template: `<h1>{{count}}</h1>`,
+
+            //在mounted的時候聆聽事件
+            mounted() {
+                bus.$on('add',() => this.count+=1);
+            },
+        });
+
+        new Vue({
+            el: '#app',
+        });
+    </script>
+</body>
+</html>

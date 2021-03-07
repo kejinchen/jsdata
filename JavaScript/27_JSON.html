@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JSON: JavaScript Object Notation</title>      
+</head>
+<body>    
+    <script>
+    //在JS裡建立陣列  參考20_Array.html
+     1. let arr = [];
+        let arr = new Array();
+
+        let arr = [2,4,6,false,new String('ABC')];
+        let arr = new Array(2,4,6,false,new String('ABC'));
+    
+     2. 如何存取?
+        arr[0]  ---> 2
+        arr[3]  ---> false
+        
+        for(let i = 0; i < arr.length; i++){
+            console.log(arr[i])
+        }
+
+    //在JS裡建立物件  參考21_Object.html
+     1. let obj = {};
+        let obj = new Object();
+        (1).
+            let obj = {};
+            obj.name = 'Anan';
+            obj.age = 15;
+            obj.gender = 'male';            
+        (2).
+            let obj = {
+                name: 'Anan',
+                age: 15,
+                gender: 'male',
+                smile: function(){...},  //ES5
+                smile(){...},            //ES6
+            };
+    
+    2. 如何存取?
+        console.log(obj.name);
+
+    3. [example]:
+        let man = {
+            name: 'Peter',
+            age: 40,
+            favoriteColors: ['black','gray','blue'],
+            car: {
+                make: 'BMW',
+                mode: 'X5',
+                year: 2019,
+            },
+            retired: false,
+            diving(){
+                alert('hi~');
+            },
+        };
+
+        man.name -----> Peter
+        man.diving() -----> hi~
+        man.favoriteColors[1] -----> gray
+            陣列標記法: man['favoriteColors'][1] -----> gray
+        man.car.make -----> BMW
+            陣列標記法: man['car']['make'] -----> BMW
+
+        for(let key in Object|Array){...}
+        for(let key in man){
+            //use man[key]
+            //use key
+        }
+
+    //JSON: 陣列和物件的組合
+        //陣列放進物件裡
+        let temp = {屬性: []};
+        let friends = {
+            ED103: [{name: 'Andy', age: 18},
+                    {name: 'Brian', age: 21},
+                    {name: 'Carl', age: 20},
+                    {name: 'Denny', age: 19},
+                    {name: 'Eddie', age: 18}
+                  ],
+        };
+
+        friends ----> 物件
+        friends.ED103 ----> 陣列
+        friends.ED103[1] ----> 物件
+        friends.ED103[1].name ----> Brian
+
+        //物件放進陣列裡
+        let temp = [{},{},{},{},...];
+        let classmate = [{name: 'Andy', age: 18},
+                         {name: 'Brian', age: 21},
+                         {name: 'Carl', age: 20},
+                         {name: 'Denny', age: 19},
+                         {name: 'Eddie', age: 18}
+                        ];
+        classmate ----> 陣列
+        classmate[2] ----> 物件
+        classmate[2].age ----> 20
+    
+    //JSON 的格式:
+        {
+            "ED103": [
+                {"name": "Andy", "age": 18},
+                {"name": "Brian", "age": 21},
+                {"name": "Carl", "age": 20},
+                {"name": "Denny", "age": 19},
+                {"name": "Eddie", "age": 18}
+            ],
+        }
+
+    //將JavaScript物件轉成JSON
+        JSON.stringify();
+
+        let man = {
+            name: 'Peter',
+            age: 40,
+            favoriteColors: ['black','gray','blue'],
+            car: {
+                make: 'BMW',
+                mode: 'X5',
+                year: 2019,
+            },
+            retired: false,
+            diving(){
+                alert('hi~');
+            },
+        };
+
+        console.log(JSON.stringify(man));
+
+        結果: {"name":"Peter","age":40,"favoriteColors":["black","gray","blue"],"car":{"make":"BMW","mode":"X5","year":2019},"retired":false}
+    
+    //將JSON(放在單引號或反引號裡)轉成JavaScript物件或陣列
+        JSON.parse();
+
+        let json = '{"name":"Peter","age":40,"favoriteColors":["black","gray","blue"],"car":{"make":"BMW","mode":"X5","year":2019},"retired":false}';
+        
+        console.log(JSON.parse(json));
+
+        結果: 
+    </script>
+</body>
+</html>

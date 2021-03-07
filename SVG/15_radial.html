@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG</title>
+    <link rel="stylesheet" href="0_style.css">
+</head>
+<body>
+    <svg id="svg">
+        <!-- <defs>
+            <radialGradient id="pinkBlue" cx="50%" cy="50%" r="80%" fx="50%" fy="50%"
+                spreadMethod="">
+                <stop offset="0%" stop-color="pink" stop-opacity=""/>
+                <stop offset="100%" stop-color="blue" stop-opacity=""/>
+            </radialGradient>
+        </defs>
+        <ellipse cx="300" cy="300" rx="250" ry="150" style="fill:url(#pinkBlue);"/> -->
+    
+        <defs>
+            <radialGradient id="circle1" cx="50%" cy="50%" r="50%"
+                spreadMethod="">
+                <stop offset="0%" stop-color="pink" stop-opacity=""/>
+                <stop offset="100%" stop-color="blue" stop-opacity=""/>
+            </radialGradient>
+            <radialGradient id="circle2" cx="50%" cy="50%" r="30%" fx="70%" fy="70%"
+                spreadMethod="repeat">
+                <stop offset="0%" stop-color="pink" stop-opacity=""/>
+                <stop offset="100%" stop-color="blue" stop-opacity=""/>
+            </radialGradient>
+            <radialGradient id="ball" cx="30%" cy="30%" r="75%">
+                <stop offset="0%" stop-color="#fff" />
+                <stop offset="30%" stop-color="#88a" />
+                <stop offset="70%" stop-color="#335" />
+                <stop offset="100%" stop-color="#000" />
+            </radialGradient>
+        </defs>
+
+
+        <rect x="100" y="100" width="150" height="150" fill="url(#circle1)"/>
+        <rect x="300" y="100" width="150" height="150" fill="url(#circle2)"/>
+
+        <circle cx="300" cy="500" r="80" fill="url(#ball)"/>
+
+    </svg>
+
+    <script>
+        window.onload = function(){
+            let svg = document.getElementById('svg');
+            let lineString = '';
+
+            for(let i = 0; i < 30; i++){
+                let position = i * 50;
+
+                lineString += `
+                    <line x1="${position}" y1="0" x2="${position}" y2="800" stroke="rgba(0,0,0,0.3)" />
+                    <text x="${position}" y="10" style="font: 10px Tahoma;">${position}</text>
+
+                    <line x1="0" y1="${position}" x2="1000" y2="${position}" stroke="rgba(0,0,0,0.3)" />
+                    <text x="0" y="${position}" style="font: 10px Tahoma;">${position}</text>
+                
+                    
+                
+                `;
+            }
+
+            // svg.innerHTML = lineString;
+        };
+    </script>
+</body>
+</html>
+<!--
+radialGradient屬性
+    - cx | cy
+    - r         >>>>預設值: 50%
+                >>>>如果設定 1 或 100%,半徑就是矩形的寬度，
+                    如果是橢圓形會按照長寬比配置
+    - fx | fy
+    ------------------
+    以上數值可以是0~1之間，也可以是0%~100%
+
+    - spreadMethod = "pad(by default) | reflect | repeat"
+    - gradientTransform = "rotate() | scale() ..."
+    - gradientUnits = "userSpaceOnUse | objectBoundingBox(by default)"
+
+    ※userSpaceOnUse:以viewport為座標系統
+
+-->

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG</title>
+    <link rel="stylesheet" href="0_style.css">
+</head>
+<body>
+    <svg id="svg">
+        <defs>
+            <linearGradient id="pinkBlue" x1="0%" y1="0%" x2="100%" y2="100%"
+            spreadMethod="repeat">
+                <!-- gradientTransform="rotate(30)"> -->
+                <stop offset="0%" stop-color="pink" stop-opacity=""/>
+                <stop offset="100%" stop-color="blue" stop-opacity=""/>
+            </linearGradient>
+        </defs>
+
+        <!-- <ellipse cx="300" cy="300" rx="250" ry="150" style="fill:yellow;"/> -->
+        <ellipse cx="300" cy="300" rx="250" ry="150" style="fill:url(#pinkBlue);"/>
+    </svg>
+
+    <script>
+        window.onload = function(){
+            let svg = document.getElementById('svg');
+            let lineString = '';
+
+            for(let i = 0; i < 30; i++){
+                let position = i * 50;
+
+                lineString += `
+                    <line x1="${position}" y1="0" x2="${position}" y2="800" stroke="rgba(0,0,0,0.3)" />
+                    <text x="${position}" y="10" style="font: 10px Tahoma;">${position}</text>
+
+                    <line x1="0" y1="${position}" x2="1000" y2="${position}" stroke="rgba(0,0,0,0.3)" />
+                    <text x="0" y="${position}" style="font: 10px Tahoma;">${position}</text>
+                
+                    
+                
+                `;
+            }
+
+            // svg.innerHTML = lineString;
+        };
+    </script>
+</body>
+</html>
+<!--
+linearGradient屬性
+    - x1 | y1 
+    - x2 | y2
+
+    x1="0" | x1="0%"
+    x1="1" | x1="100%"
+    ------------------
+    以上數值可以是0~1之間，也可以是0%~100%
+
+    - spreadMethod = "pad(by default) | reflect | repeat"
+    - gradientTransform = "rotate() | scale() ..."
+    - gradientUnits = "userSpaceOnUse | objectBoundingBox(by default)"
+
+    ※userSpaceOnUse:以viewport為座標系統
+
+-->

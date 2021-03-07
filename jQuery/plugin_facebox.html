@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery plugin -- facebox</title>
+        <link rel="stylesheet" href="./css/facebox.css">
+		<script src="./js/jquery-3.5.1.js"></script>
+		<script src="./js/facebox.js"></script>
+		<script>
+			$(document).ready(function(){
+                $('a').facebox({
+                    opacity      : 0.2,
+                    overlay      : true,
+                    closeImage   : '../images/close.png',
+                });
+			});			
+		</script>
+	</head>
+	<body>
+       <a href="../images/washDrawing/015.JPG">瑜珈課</a> | 
+       <a href="../images/washDrawing/019.JPG">小蝌蚪</a>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <style>
+            #talk{
+                height: 200px;
+                width: 350px;
+            }
+        </style>
+		<script src="./js/jquery-3.5.1.js"></script>
+		<script>
+			$(document).ready(function(){
+                $('#agree').attr('disabled',true);
+
+                $('#talk').scroll(function(){
+                    let textarea_height = $(this)[0].scrollHeight;
+                    let scroll_height = textarea_height - $(this).innerHeight();
+                    let scroll_top = $(this).scrollTop();
+
+                    if(scroll_top === scroll_height){
+                        $('#agree').removeAttr('disabled');
+                    }
+                    // $('#feedback').text(textarea_height);
+                });
+			});			
+		</script>
+	</head>
+	<body>
+        <!-- lorem150 -->
+        <textarea id="talk">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint labore itaque error incidunt reprehenderit perspiciatis, non quo deserunt illo quos repudiandae unde blanditiis, neque voluptates maiores sunt ullam aperiam eaque autem ab at! Aut porro earum qui similique voluptatem totam, explicabo praesentium blanditiis alias tempore, cum, incidunt voluptatibus beatae nihil modi provident sapiente error deserunt esse ipsum harum. Sapiente, porro. Qui itaque incidunt accusantium quas est eum facere, laborum officiis. Repudiandae quia ducimus nisi placeat est aliquam exercitationem tempora, debitis unde quidem consequuntur distinctio qui ratione nobis ipsa eligendi, ad delectus molestiae rerum nam obcaecati. Repellendus rerum deserunt sed. Tempore quod fugiat tempora, ipsa voluptas repellat eligendi beatae soluta, eum inventore quidem. Est id eum repudiandae. Impedit eum libero, at quidem illum similique ipsa est, animi, sed odit perspiciatis iusto quas recusandae ducimus accusantium soluta amet itaque dolor asperiores placeat saepe! Officiis ab porro velit accusamus facere, aliquid pariatur nam.</textarea>
+        <p>
+            <input type="checkbox" id="agree">
+            I agree to the terms and conditions.
+        </p>
+        <div id="feedback"></div>
+    </body>
+</html>
+
+<!-- 
+    $(this)[0]
+    $(this).get(0)
+    $(this).toArray[](0)
+    以上三個寫法都行
+
+    $(this)指的是當前所指的jQuery的對象
+    $(this)[0] 轉化成DOM的對象，便於使用DOM的一些屬性和方法
+-->

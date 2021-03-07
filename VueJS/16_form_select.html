@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue -- 下拉式選單(drop-down menu)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>    
+    <!-- <script src="./js/vue.js"></script> -->    
+</head>
+<body>
+    <div id="app"> <!--HTML DOM template-->
+       <!-- 1. 單選的drop-down menu -->
+       <!-- <select v-model="year">
+           <option value="" disabled>Select Year</option>
+           <option>2016</option>
+           <option>2017</option>
+           <option>2018</option>
+           <option>2019</option>
+           <option>2020</option>
+       </select>
+       <p>{{year}}</p> -->
+
+       <!-- 2. 多選的drop-down menu -->
+       <!-- <select v-model="years" multiple>
+            <option value="" disabled>Select Year</option>
+            <option>2016</option>
+            <option>2017</option>
+            <option>2018</option>
+            <option>2019</option>
+            <option>2020</option>
+        </select>
+        <p>{{years}}</p> -->
+
+        <!-- 3. -->
+        <select v-model="selectedYear">
+            <option v-for="year in years">{{year}}</option>
+        </select>
+        <select v-model="selectedMonth">
+            <option v-for="month in 12">{{month}}</option>
+        </select>
+        <select v-model="selectedDate">
+            <option v-for="date in 30">{{date}}</option>
+        </select>
+
+        <p>今天是西元 {{selectedYear}} 年 {{selectedMonth}} 月 {{selectedDate}} 日</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',     
+            data: {         // 變數存放的地方
+                // year: '',   //1.
+                // years: [],  //2.
+                years: [2016,2017,2018,2019,2020,2021,2022,2023,2024],  //3.
+                selectedYear: new Date().getFullYear(),
+                selectedMonth: new Date().getMonth() + 1,
+                selectedDate: new Date().getDate(),
+            },
+            methods: {      // 函數放這裡
+
+            }, 
+            computed: {
+                
+            },           
+        });
+    </script>
+</body>
+</html>

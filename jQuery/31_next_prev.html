@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+		<link rel="stylesheet" href="./css/style.css">
+		<script src="./js/jquery-3.5.1.js"></script>
+		<script>
+			$(document).ready(function(){
+                // 1
+				// $('.names li:first').append(' (First)');
+				// $('.names li:last').append(' (Last)');
+
+                // 2
+                // $('.names').find('li').first().append(' (First)');
+                // $('.names').find('li').first().next().append(' (Second)');  //after first
+                // $('.names').find('li').last().append(' (Last)');
+
+                // 3 修改HTML並加上CSS
+                // $('.menu').find('li').first().addClass('bold');
+                // $('.menu').find('li').first().addClass('bold').nextAll().hide();
+                $('.menu').find('li').first().addClass('bold').click(function(){
+                    // alert('You clicked me.');  //以上click可以改成hover
+                    // $(this).nextAll().show();
+                    $(this).nextAll().toggle();
+                }).nextAll().hide();
+			});			
+		</script>
+	</head>
+	<body>
+        <!-- 1 和 2
+        <ul class="names">
+            <li>Alex</li>
+            <li>Billy</li>
+            <li>Carl</li>
+            <li>Dale</li>
+        </ul> 
+        -->
+
+        <ul class="menu">
+            <li><a href="#">User</a></li>
+            <li>Setting</li>
+            <li>Log out</li>
+            <li>Delete account</li>
+            <li>Something else</li>
+        </ul>
+	</body>
+</html>

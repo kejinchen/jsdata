@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue -- 檔案</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>    
+    <!-- <script src="./js/vue.js"></script> -->    
+</head>
+<body>
+    <div id="app"> <!--HTML DOM template-->
+        <!-- <input type="file"> 不能使用v-model -->
+        <input type="file" @change="selectedFile">
+        <p>{{image}}</p>
+        <img :src="image">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',     
+            data: {         // 變數存放的地方
+                image: '',
+            },
+            methods: {      // 函數放這裡
+                selectedFile(e){
+                    // console.log(e.target);
+                    // console.log(e.type);
+                    let file = e.target.files[0];
+                    // let file = e.target.files.item(0);
+                    // console.log(file);
+
+                    //參考HTML5/fileAPI/5_imageRead.html + 6_new.js
+                    let readFile = new FileReader();
+                    readFile.readAsDataURL(file);
+
+                    readFile.addEventListener('load',this.loadImage);
+                },
+                loadImage(e){
+                    this.image = e.target.result;
+                },
+            }, 
+            computed: {
+                
+            },           
+        });
+    </script>
+</body>
+</html>

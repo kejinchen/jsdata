@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue -- 綁定style</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>    
+    <!-- <script src="./js/vue.js"></script> -->    
+</head>
+<body>
+    <div id="app"> <!--HTML DOM template-->
+        <button @click="zoom">Zoom</button>
+        <button @click="shrink">Shrink</button>
+        <h1 :style="textChange">Lorem ipsum dolor sit amet.</h1>
+        <!-- <h1 style="font-size: 50px;">Lorem ipsum dolor sit amet.</h1> -->
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',     
+            data: {         // 變數存放的地方
+                size: 30,
+            },
+            methods: {      // 函數放這裡
+                zoom(){
+                    this.size += 2;
+                },
+                shrink(){
+                    this.size -= 2;
+                },
+            }, 
+            computed: {
+                textChange(){
+                    return {
+                        fontSize: `${this.size}px`,
+                        color: 'maroon',
+                        textDecoration: 'underline',
+                    };
+                },
+            },           
+        });
+    </script>
+</body>
+</html>

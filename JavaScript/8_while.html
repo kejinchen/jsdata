@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: while</title>      
+</head>
+<body>
+
+    <!-- 有迴圈    -->
+    <script>
+        window.onload = function(){  //匿名函數
+            const SCALE = 0.33;
+            const ADJUST = 7.31;
+            let shoeNo = 3;
+            let foot;
+
+            document.write('<p>Shoes &nbsp;&nbsp;&nbsp;&nbsp; Foot length</p>');
+
+            while(shoeNo < 15.5){
+                foot = SCALE *　shoeNo　+ ADJUST;
+                foot = foot.toFixed(2);
+
+                if(shoeNo < 10){
+                    document.write(`<p>&nbsp;&nbsp;&nbsp;&nbsp;${shoeNo} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${foot} inches.</p>`);
+                }else{
+                    document.write(`<p>&nbsp;&nbsp;&nbsp;${shoeNo} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${foot} inches.</p>`);
+                }  
+                shoeNo++;            
+            }
+        }
+    </script>
+
+
+
+    <!-- 沒有迴圈    --> 
+    <!-- <h2>請輸入鞋號，並印出腳的大小是幾英吋？</h2>
+    鞋號: <input type="te；xt" id="shoe">
+    <button id="countButton" onclick="counter()">計算</button>
+    <h2 id="result"></h2>    -->
+    <!-- 
+    <script>
+        function counter(){
+            const SCALE = 0.33;
+            const ADJUST = 7.31;
+
+            // console.log(shoe.value);
+            let foot = SCALE *　shoe.value　+ ADJUST;
+            foot = foot.toFixed(2);
+
+            result.innerText = `腳的大小是 ${foot} 英吋`;
+        }
+    </script> -->
+</body>
+</html>

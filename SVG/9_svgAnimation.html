@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG</title>
+    <link rel="stylesheet" href="10_main.css">
+</head>
+<body>
+    <svg id="svg1" viewbox="-50 -50 100 100">
+        <circle cx="0" cy="0" r="20">
+            <animate attributeName="r" values="25;10;15;0" dur="2s" repeatCount="3"/>
+        </circle>
+    </svg>
+    <svg id="svg2" viewbox="-50 -50 100 100">
+        <circle cx="0" cy="0" r="20"></circle>
+        <g>
+            <rect x="-25" y="-25" width="50" height="50" style=""/>
+            <line x1="-30" y1="0" x2="30" y2="0"/>
+            <line x1="0" y1="-30" x2="0" y2="30"/>
+
+            <animateTransform attributeName="transform" type="rotate" values="0;360" dur="2s" repeatCount="3"/>
+        </g>        
+    </svg>
+    <svg id="svg3" viewbox="0 0 200 200">
+        <circle cx="0" cy="25" r="3">
+            <animate attributeName="cy" values="25;50;25" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="25" cy="80" r="3">
+            <animate attributeName="cy" values="80;40;80" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="75" cy="60" r="3">
+            <animate attributeName="cy" values="60;100;60" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="125" cy="120" r="3">
+            <animate attributeName="cy" values="120;150;120" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="150" cy="90" r="3">
+            <animate attributeName="cy" values="90;10;90" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="200" cy="40" r="3">
+            <animate attributeName="cy" values="40;80;40" dur="2s" repeatCount="indefinite"/>
+        </circle>
+
+        <polyline points="0 25,25 80,75 60,125 120,150 90,200 40">
+            <animate attributeName="points" dur="2s" repeatCount="indefinite"
+                     values="0 25,25 80,75 60,125 120,150 90,200 40;0 50,25 40,75 100,125 150,150 10,200 80;0 25,25 80,75 60,125 120,150 90,200 40"/>
+        </polyline>
+
+    </svg>
+</body>
+</html>
+
+<!-- 
+    SVG的viewbox 
+    <svg viewbox="min-x min-y width height"></svg>
+    min-x   預設值為0
+    min-y   預設值為0 
+    width   預設值為svg的寬
+    height  預設值為svg的高
+-->
+<!--
+    針對屬性值的改變，使用<animate>
+        attributeName="屬性"
+        values="屬性值的變化(動畫影格)"  
+        from="" 
+        to=""  
+        dur="執行時間" 
+        repeatCount="執行次數|indefinite"
+
+    針對變形處理，使用<animateTransform>
+        attributeName="transform"
+        type="scale|rotate|translate..."
+        values="動畫影格"
+        from=""
+        to=""
+        dur="執行時間" 
+        repeatCount="執行次數|indefinite"
+-->
+<!--
+        CSS               SVG
+    --------------------------------
+    border-color        stroke
+    border-width        stroke-width
+    background-color    fill
+    left | top          x(cx) | y(cy)
+-->

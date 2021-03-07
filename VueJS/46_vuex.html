@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vuex</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.5.1/vuex.min.js"></script>    
+</head>
+<body>   
+    <div id="app">
+        <!-- <button @click="count+=1"> Add </button> -->
+        <button @click="addCount"> Add </button>
+        <h1>{{count}}</h1>
+    </div> 
+    <script> 
+        const store = new Vuex.Store({
+            state: {   
+                count: 0,
+                x: 100,
+                y: 'ABC',
+                z: false,
+            },
+            mutations: {
+                addCount(state){
+                    state.count += 1;
+                },
+            },
+        });
+
+        new Vue({
+            el: '#app',
+            store,      //store: store,
+            data: {
+                // count: 0,
+            },
+            computed: {
+                count(){
+                    return this.$store.state.count;
+                },
+            },
+            methods: {
+                // addCount(){
+                //     this.count++;
+                // },
+                addCount(){
+                    this.$store.commit('addCount');
+                },
+            },
+        });
+    </script>
+</body>
+</html>

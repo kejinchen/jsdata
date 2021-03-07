@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: var | let | const</title>      
+</head>
+<body>
+    <script>
+        window.onload = function(){ 
+        // var
+            for(var i = 1; i <= 5; i++){
+                document.write(`${i} <br>`);
+            }
+            document.write(`${i} <br>`);
+            document.write(`======<br>`);
+
+        // let
+            for(let j = 1; j <= 5; j++){
+                document.write(`${j} <br>`);
+            }
+            // document.write(`${j} <br>`);
+            document.write(`======<br>`);
+
+        // const
+            const FULL_NAME = 'Silvia Huang';
+            document.write(`${FULL_NAME} <br>`);
+            document.write(`======<br>`);
+            // FULL_NAME = 'Anan';  //不能被reassign
+
+            const POINT = {
+                x: 100,
+                y: 200,
+            };
+            document.write(`${POINT.x} <br>`);
+
+            POINT.x = 500;
+            document.write(`${POINT.x} <br>`);
+            document.write(`======<br>`);
+
+            document.write(`${Number.MAX_VALUE} <br>`);
+            document.write(`${Number.MIN_VALUE} <br>`);
+        }
+    </script>
+</body>
+</html>

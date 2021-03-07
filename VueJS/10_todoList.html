@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue -- To-Do List</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <!-- <script src="./js/vue.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+    <div id="app"> <!--HTML DOM template-->
+        Your task: <input type="text" v-model="newTask" @keyup.enter="addTask">
+
+        <h3>To-Do List</h3>
+        <ol>
+            <li v-for="task in tasks">{{task}} -- <a href="#" @click="removeTask(task)">delete</a></li>
+        </ol>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',     
+            data: {         // 變數存放的地方
+                tasks: [],
+                newTask: '',
+            },
+            methods: {      // 函數放這裡
+                addTask(){
+                    // $.inArray(物件,物件陣列);
+                    // 參考jQuery/22_inArray.html
+
+                    if($.inArray(this.newTask, this.tasks) == -1){
+                        this.tasks.push(this.newTask);
+                        this.newTask = '';
+                    }
+                    this.newTask = '';
+                },
+                removeTask(task){
+                    // this.tasks.splice(index,刪除的筆數);
+                    this.tasks.splice(this.tasks.indexOf(task),1);
+                    // console.log(this.tasks.indexOf(task));
+                }
+            },            
+        });
+    </script>
+</body>
+</html>

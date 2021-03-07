@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: Object 物件</title>      
+</head>
+<body>
+    1. 建立Object物件
+        let obj = {};
+        let obj = new Object();
+
+        (1).
+            let obj = {};
+            obj.name = 'Anan';
+            obj.age = 15;
+            obj.gender = 'male';
+            
+        (2).
+            let obj = {
+                name: 'Anan',
+                age: 15,
+                gender: 'male',
+                smile: function(){...},  //ES5
+                smile(){...},            //ES6
+            };
+    
+    2. 如何存取?
+        console.log(obj.name);
+
+    3. [example]:
+
+        let man = {
+            name: 'Peter',
+            age: 40,
+            favoriteColors: ['black','gray','blue'],
+            car: {
+                make: 'BMW',
+                mode: 'X5',
+                year: 2019,
+            },
+            retired: false,
+            diving(){
+                alert('hi~');
+            },
+        };
+
+        man.name -----> Peter
+        man.diving() -----> hi~
+        man.favoriteColors[1] -----> gray
+            陣列標記法: man['favoriteColors'][1] -----> gray
+        man.car.make -----> BMW
+            陣列標記法: man['car']['make'] -----> BMW
+
+        for(let key in Object|Array){...}
+        for(let key in man){
+            //use man[key]
+            //use key
+        }
+
+    4. 刪除Object的屬性
+        delete man.retired
+   
+</body>
+</html>

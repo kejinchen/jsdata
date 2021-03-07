@@ -1,0 +1,24 @@
+Three.js
+四個主要的元素:
+1. Object 物件
+    - 形狀(Geometry)和材質(Material)組成
+        Geometry + Material == Mesh
+    - 製作好的物件放進場景(Scene)中
+2. Light 光源
+    - 環境光源: 強制光源
+    - 平行光源: DirectionLight
+    - 點光源: 位置，衰弱(falloff)期
+    - 聚光源: 位置，角度，衰弱(falloff)期
+3. Material 材質: 決定渲染的方式
+    - 可以指定顏色和貼圖
+    - 參數: reflect(反射), difuse(擴散), bump(凹凸面)
+4. Camera 攝影機: 決定視野和渲染
+    - Field-of-view 視野
+    - renderer: CSS | SVG | Canvas | WebGL
+
+How to do?
+1.建立場景
+2.建立渲染器
+3.建立攝影機
+4.建立光源
+5.建立物件和材質

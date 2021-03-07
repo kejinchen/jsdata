@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: 總秒數換算成幾分幾秒</title> 
+    <script>
+        function changeToMinutes(){
+            const SEC_PER_MIN = 60;
+            let mintues = parseInt(seconds.value / SEC_PER_MIN);
+            let left = seconds.value % SEC_PER_MIN;
+
+            result.innerText = `${seconds.value} seconds is ${mintues} mintues, ${left} seconds.`;
+        }
+    </script>   
+</head>
+<body>
+    <h2>總秒數換算成幾分幾秒</h2>
+    <div>
+        請輸入秒數: <input type="text" id="seconds">
+        <button onclick="changeToMinutes()">換算</button>
+    </div>
+    <p id="result"></p>    
+</body>
+</html>

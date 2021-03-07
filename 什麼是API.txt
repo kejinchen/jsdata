@@ -1,0 +1,67 @@
+https://www.youtube.com/watch?v=zvKadd9Cflc
+
+公共運輸整合資訊流通服務平臺
+https://ptx.transportdata.tw/PTX/
+
+氣象資料開放平台
+https://opendata.cwb.gov.tw/index
+
+Facebook API
+https://developers.facebook.com/
+
+Chrome extensions: Allow CORS: Access-Control-Allow-Origin 處理跨網域存取的問題
+====================
+SSL
+
+Windows
+  Chocolatey
+	1.安裝: https://chocolatey.org/
+  2.透過 Chocolatey 安裝 mycert 
+  3.安裝憑證
+  4.設定合法網域名稱
+  5.設定(移動)憑證檔案位置到自己指定的資料夾
+  6.設定 localhost 和 SSL 憑證
+
+MAC
+  下載 openssl 產生憑證指令
+==========
+
+API: 
+  - webhook: 被動。API串接
+  - websocket: 主動
+
+HTTP: HyperText Transfer Protocol
+HTTPs: 一般的加密服務，收費
+      Let's encrypt 提供免費的加密服務
+
+網站的溝通方式:
+  GET           read
+  POST          insert
+  PUT / PATCH   update / update if a new index
+  DELETE        delete
+
+http 屬性:
+  Header: 資料傳遞的訊息
+    - Request 
+       - headers:
+          Accept: text/html, image/png,....
+          Accept-charset:編碼格式。UTF-8,GB18030,GB2312,ASCII,ANSI...
+          Authorization: 授權檢查。當API server做資料交換，可以確認可以使用的APP
+          Cookie: client暫存資料區。
+          Content-type: request的資料型態。
+                multipart/form-data, text/plain, application/x-www-form-urlencoded(簡單的加密), application/json
+          Origin: 機器來源
+          User-Agent:發出request時client端的資料
+          X-Csrf-Token: Csrf(Cross-site request forgrey)
+    - Response
+        server: server種類
+        Set-cookie: 在client端設定cookie
+        Status: 傳遞狀態碼。200, 500, ....
+        Access-Control-Allow-Origin: 限制資源只能讓origin可以使用。*, 網址, ...
+===========
+Public API
+    https://github.com/public-apis/public-apis
+
+online json viewer
+    http://jsonviewer.stack.hu/
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <style>
+            ul{
+                padding: 0px;
+                margin: 0px;
+            }
+        </style>
+		<script src="./js/jquery-3.5.1.js"></script>
+		<script>
+			$(document).ready(function(){
+              $('ul').each(function(){
+                //   $(this).append('ABC');
+                  thisSelect = $(this);
+
+                  if(thisSelect.has('li').length === 0){
+                    thisSelect.after('Empty menu');
+                  }
+              });
+			});			
+		</script>
+	</head>
+	<body>
+        Menu 1
+        <ul>
+            <!-- <li>Menu item 1</li>
+            <li>Menu item 2</li> -->
+        </ul>
+
+        
+	</body>
+</html>

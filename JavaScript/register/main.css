@@ -1,0 +1,51 @@
+*{
+    font: 18px Tahoma;
+}
+body{
+    background: #aaa;
+}
+#theForm{
+    background: #fff;
+    width: 800px;
+    padding: 10px;
+    border: 1px solid #bbb;
+    margin: 50px;
+}
+#theForm div{
+    margin: 8px 0px;
+}
+label,input[type="submit"]{
+    text-transform: capitalize;
+}
+#result{
+    border: 1px solid maroon;
+    width: 225px;
+    height: 50px;
+    font-size: 24px;
+    color: maroon;
+    text-align: center;
+    line-height: 50px;
+}
+.error{
+    color: maroon;
+}
+label{
+    width: 150px;
+    float: left;
+}
+.moveCenter{
+    text-align: center;
+}
+.tooltip{
+    border: 1px solid steelblue;
+    display: block;
+    position: absolute;
+    left: 500px ;
+    top: 210px;
+    width: 350px;
+    color: #fff;
+    background: maroon;
+    font:100 12px Tahoma;  
+
+    visibility: hidden;
+}

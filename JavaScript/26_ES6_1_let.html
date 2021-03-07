@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: ES6 New Features -- let</title>      
+</head>
+<body>    
+    <script>
+        let movie = 'Prince of Tides';
+
+        function theMovie(){
+            let movie = 'The Devil Wears Prada';
+            return movie;
+        }
+        // let ans = theMovie();
+        // console.log(ans);
+        console.log(theMovie());
+        console.log(movie);
+        console.log('----------');
+
+        function peterFunction(){
+            let isPeter = true;
+            let saying = 'Bacon is good.';
+            console.log('Before if: ', saying);
+
+            if(isPeter){
+                let saying = 'I am Peter Pan.';
+                console.log('Inside if: ', saying);
+            }
+
+            console.log('After if: ', saying);
+        }
+        peterFunction();
+    </script>
+</body>
+</html>

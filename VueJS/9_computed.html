@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue -- 計算屬性</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <!-- <script src="./js/vue.js"></script> -->
+</head>
+<body>
+    <div id="app"> <!--HTML DOM template-->
+        <p>現在時間: {{calculate}}</p>
+        <p >
+            <!-- Your Height: <input type="text" v-model="height"> -->
+            {{calcu}}
+        </p>
+        <!-- <p>
+            Your Weight: <input type="text" v-model="weight">
+        </p>
+        <p>
+            Your BMI is: <span>{{calculate}}</span>
+        </p> -->
+    </div>
+
+    <script>
+        // BMI ---> 體重(公斤) / (身高 / 100) 的平方
+        // 女生標準介於 18.5~22之間
+        
+        new Vue({
+            el: '#app',     
+            data: {         // 變數存放的地方
+                // height: 0,
+                // weight: 0,
+                // BMI: 0,
+                score: 100,
+            },
+            methods: {      // 函數放這裡
+                DD103(member){
+                    return `DD103 member: ${member}`;
+                }
+            },
+            computed: {     // 函數也可以放這裡。放在這裡的函數，不能傳參數，一定要有傳回值(return)。
+                // calculate: function(){},
+                // calculate(){
+                //     if(this.height > 0 && this.weight > 0){
+                //         let BMI = this.weight / Math.pow((this.height / 100), 2);
+                //         return BMI.toFixed(2);
+                //     }else{
+                //         return 0;
+                //     }
+                // },
+                // now(){
+                //     let doNothing = this.height + this.weight;
+                //     let temp = this.calculate;
+
+                //     let today = new Date();
+                //     return today;
+                // },
+                calcu(){
+                    return 100;
+                }
+            },
+        });
+    </script>
+</body>
+</html>

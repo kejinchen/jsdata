@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue component -- combination</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>    
+    <!-- <script src="./js/vue.js"></script> -->    
+</head>
+<body>
+
+    <div id="app"> <!--HTML DOM template-->
+        <todo-list></todo-list>
+    </div>
+
+    <script>
+        Vue.component('todo-item', { 
+            props: ['xyz'],
+            template: `
+                <li>{{xyz}}</li>
+            `,
+        });
+
+        Vue.component('todo-input', { 
+            data(){
+                return{
+                    task: '',
+                };
+            },
+            methods: {                
+                submitData(){
+                    // this.$emit('自訂事件'[,.....]);
+                    this.$emit('abc',this.task);
+                    this.task = '';
+                },
+            },
+            template: `
+                <form @submit.prevent="submitData">
+                    <input type="text" v-model="task">
+                    <button>Submit</button>
+                </form>
+            `,
+        });
+
+        Vue.component('todo-list', {
+            data(){
+                return{
+                    tasks: [],
+                };
+            }, 
+            methods: {
+                addTask(item){
+                    this.tasks.push(item);
+                },
+            }, 
+            template: `
+                <div>
+                    <todo-input v-on:abc="addTask"></todo-input>
+                    <!-- 當下層發出$emit('自訂事件')時，上層用「v-on:自訂事件」或「@自訂事件」接收 -->
+                    <ul>
+                        <todo-item v-for="task in tasks" v-bind:xyz="task"></todo-item>
+                        <!-- xyz是自訂名稱，是指組件的屬性(props)-->
+                    </ul>
+                </div>
+            `,
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                // count: 0,
+            },
+        });
+    </script>
+</body>
+</html>
+
+<!-- 
+    <form @submit="submitData">
+        <input type="text" v-model="task">
+        <button>Submit</button>
+    </form>
+    <ul>
+        <li v-for="task in tasks">{{task}}</li>
+    </ul> 
+-->

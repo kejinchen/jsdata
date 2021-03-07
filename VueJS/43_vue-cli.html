@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-cli -- 單一檔案組件</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>    
+    <!-- <script src="./js/vue.js"></script> -->    
+</head>
+<body>    
+    <script> 
+        單一檔案組件
+        1. 將script, html, css放在同一個檔案中(.vue),這一個檔案就是「一個」組件
+        2. 這個檔案需要轉換打包，才能在瀏覽器運行
+        3. vue-cli: webpack的開發工具
+            node.js(使用LTS): 讓電腦可以執行JavaScript的環境 (https://nodejs.org/)
+            npm: node.js裡面的軟體，跟著node.js自動安裝，他會幫我們安裝node.js的套件，
+                 其中一個厲害的套件叫做webpack
+            webpack(https://webpack.js.org/): 是一個轉換工具
+                 可以將單一檔案組件，全部打包成一個JavaScript檔案
+            vue-cli: webpack設定比較複雜，所以Vue開發者開發這套工具幫助我們方便的建立webpack
+        ==========
+        
+        1. 先安裝node.js
+        2. 命令提示字元視窗，將目標change到 D:\web_ED103\VueJS>
+            指令: npm i -g vue-cli
+                (npm幫你從雲端下載安裝vue-cli到你的電腦)
+            指令: vue  (vue有哪些指令可以用)
+            指令: vue list (幫你們列出vue有哪些template可以用)
+            指令: vue init webpack-simple 專案名稱
+                  vue init webpack-simple vue-lesson
+            ......
+            cd vue-lesson
+            npm install
+            npm run dev
+        ==========
+
+        import 和 export
+
+        ex. 資料夾imports --> 檔案 app.js 和 counter.js
+        counter組件要給app組件使用 --> app組件可以去引用counter組件
+                                  --> counter組件要把自己的內容匯出
+        定義一個counter組件(counter.js)
+        const Counter = Vue.component('counter',{
+            //.....
+        });
+
+        export default Counter;
+        -----------
+        app組件(app.js)將內容引入/匯入
+        // import Counter from '相對路徑'
+        import Counter from './counter.js'  //如果副檔名是js,可以省略
+
+        接下來就可以使用Counter了
+
+        new Vue({
+            el: '#app',
+            components: {
+                Counter: Counter,   //可以寫成 Counter,
+            },
+            template: `
+                <div>
+                    <Counter />
+                </div>
+            `,
+        });
+        ==========
+        src\main.js
+
+        import Vue from 'vue'
+        import App from './App.vue'
+
+        new Vue({
+            el: '#app',
+            render: h => h(App)
+        })
+
+        // render函數會傳入一個createElement()
+        // createElement()函數：用來輸入一個組件，回傳他要輸出的元素
+        // render: function(createElement){
+        //   return createElement(呼叫一個組件);
+        // },
+
+        // //簡化的寫法
+        // render: (createElement) => createElement(App)
+        // render: createElement => createElement(App)
+
+        // //慣例上 createElement 會寫成 h
+        // render: h => h(App)
+
+    </script>
+</body>
+</html>

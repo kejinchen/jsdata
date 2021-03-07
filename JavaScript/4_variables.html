@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript:變數</title>    
+</head>
+<body>
+    <!-- 
+        宣告變數前的修飾字: var | let | const(常數)
+        變數名稱: 英文字母、數字(不能放在開頭)、底線、錢字號
+                不能跟關鍵字(保留字)相同
+        var num;
+        合法名稱：num | $num | $____num | $_2_num | $12345 | _$_
+        不合法名稱：2_num | 2$num | 234$
+    -->
+
+        
+    <script>
+        var num = 5;
+
+        document.write('ABC<br>');
+        document.write('DEF<br>');
+        document.write(num);
+        document.write('<br>');
+        document.write(num + 10 + 'ABCDEF<br>');
+        document.write('ABCDEF' + (num + 10) + '<br>');
+        document.write('<hr>');  
+        document.write('ABCDEF' + num + '<br>');  //ES5
+        document.write(`ABCDEF${num}<br>`);  //ES6
+        document.write(`@@@${num}$$$<br>`);  
+        document.write(`###${num}<br>`);  
+    </script>
+</body>
+</html>

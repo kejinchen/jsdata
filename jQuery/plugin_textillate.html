@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery plugin -- textillate</title>
+        <link rel="stylesheet" href="./css/animate.css">
+		<script src="./js/jquery-3.5.1.js"></script>
+		<script src="./js/jquery.lettering.js"></script>
+		<script src="./js/jquery.textillate.js"></script>
+		<script>
+			$(document).ready(function(){
+                $('#theText').textillate({
+                    loop: true,
+                    minDisplayTime: 2000,
+                    initialDelay: 0,
+                    in: {
+                        effect: 'rotateIn',
+                        delayScale: 1.5,
+                        delay: 50,
+                        sync: false,
+                        reverse: false,
+                        shuffle: false,
+                        callback: function () {}
+                    },
+                    out: {
+                        effect: 'bounceOutDown',
+                        delayScale: 1.5,
+                        delay: 50,
+                        sync: false,
+                        reverse: false,
+                        shuffle: true,
+                        callback: function () {}
+                    },
+                    autoStart: true,
+                    inEffects: [],
+                    outEffects: [ 'hinge' ],
+                    callback: function () {},
+                    type: 'char'
+                });
+			});			
+		</script>
+	</head>
+	<body>
+       <div id="theText">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+    </body>
+</html>

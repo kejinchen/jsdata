@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: conditional operator(?:)</title>      
+</head>
+<body>
+    cans == 1 ---> 印出 1 can
+    cans != 1 ---> 印出 ? cans
+
+    <script>
+        window.onload = function(){ 
+            let coverage = 200;     //每桶油漆可以刷 200 square feet
+            let squareFeet = parseInt(Math.random() * 851) + 150;    //請用亂數產生 150~1000 square feet之間
+            document.write(`squareFeet ---> ${squareFeet}<br>`);
+
+            let cans = parseInt(squareFeet / coverage);
+            cans += (squareFeet % coverage == 0) ? 0 : 1;
+            
+            let unit = (cans <= 1) ? 'can' : 'cans';
+            document.write(`You need ${cans} ${unit} of paint.<br>`);
+            
+        }
+    </script>
+</body>
+</html>

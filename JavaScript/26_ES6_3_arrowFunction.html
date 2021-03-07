@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: ES6 New Features -- arrrow function</title>      
+</head>
+<body>    
+    <script>
+        // 1.
+        function circleArea(r) {
+            return Math.PI * r * r;
+        }
+        console.log(circleArea(5));     //78.53981633974483
+
+        // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        let circleArea2 = function(r){
+            return Math.PI * r * r;
+        };
+        console.log(circleArea2(5));    //78.53981633974483
+
+        // 2.
+        // let circleArea3 = (r) => Math.PI * r * r;
+        let circleArea3 = r => Math.PI * r * r;
+
+        console.log(circleArea3(5));    //78.53981633974483
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: if...else判斷奇數或偶數</title>      
+</head>
+<body>
+    <h2>請輸入一個整數，判斷其為奇數還是偶數?</h2>
+    <div>
+        整數: <input type="text" id="integer">
+        <button onclick="changeToAnswer()">判斷</button>
+    </div>
+    <p id="result"></p>
+
+    <script>
+        function changeToAnswer(){ 
+            let integer = document.getElementById('integer').value;
+            let result = document.getElementById('result');
+            
+            let ans = isNaN(integer);  //page 21
+            // alert(ans);
+
+            if(ans == false){
+                if(integer % 2 == 0){
+                    result.innerHTML = `<span style="color:red;">${integer}</span> 是偶數。`;
+                }else{
+                    result.innerHTML = `<span style="color:red;">${integer}</span> 是奇數。`;
+                }
+            }else{
+                alert('請輸入一個數值!!!');
+            }
+            
+            
+            
+        }
+    </script>
+</body>
+</html>

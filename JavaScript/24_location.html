@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: window.location 物件(重新導向)</title>      
+</head>
+<body>
+    
+    <h1></h1>
+    <a href=""></a>
+
+    <form action="">
+        name: <input type="text" name="name"><br>
+        password: <input type="password" name="password"><br>
+        <button>Submit</button>
+    </form>
+
+
+
+    <script>
+        window.location = 'http://www.google.com';
+        window.location.href = 'http://www.google.com';
+
+        window.location.replace('http://www.google.com');
+
+        EX. http://127.0.0.1:5500/JavaScript/23_history.html?page=5&name=CSS3
+
+        location.search -----> 尋找 ? 以後的資料(包含 ? )
+                        -----> ?page=5&name=CSS3
+        location.search.slice(1) -----> page=5&name=CSS3
+        location.search.slice(1).split('&') -----> ["page=5", "name=CSS3"]
+        location.search.slice(1).split('&')[0] -----> "page=5"
+        location.search.slice(1).split('&')[0].split('=')  -----> ["page", "5"]
+        location.search.slice(1).split('&')[0].split('=')[1] -----> "5"
+
+        // =============
+        location.hash 尋找網頁的某個區域
+        EX.
+        http://www.searchBook.com/search.html#1
+        http://www.searchBook.com/search.html#2
+        http://www.searchBook.com/search.html#3
+        
+        location.hash -----> 尋找 # 以後的資料(包含 # )
+                      -----> #1
+        location.hash.charAt(1) -----> 1  //找第二個字元
+        location.search.slice(1) -----> 1  //找第二個字元到結束
+        var content = location.hash.charAt(1);
+        switch(content){
+            case 1: 
+                ...
+                break;
+            case 2: 
+                ...
+                break;
+            case 3: 
+                ...
+                break;
+        }
+
+        // =============
+
+        ....index.html#some
+
+        <a name="some">XXX</a>
+        <h1 id="some">OOO</h1>
+    </script>
+</body>
+</html>

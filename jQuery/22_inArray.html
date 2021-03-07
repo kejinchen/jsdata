@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+		<link rel="stylesheet" href="css/style.css">
+		<style>
+			span{
+				color: maroon;
+				text-transform: capitalize;
+			}
+		</style>
+		<script src="./js/jquery-3.5.1.js"></script>			
+		<script>
+			$(document).ready(function(){
+				let breads = ['donuts','rolls','bagel','pretzel','croissant'];
+
+				$('#checkButton').click(function(){
+					let bread = $('#bread').val();
+
+					// $.inArray(物件,物件陣列);
+					// alert($.inArray(bread,breads));
+					if($.inArray(bread,breads) != -1){
+						$('#feedback').html(`<span>${bread}</span> is in the bread array.`);
+					}else{
+						$('#feedback').html(`<span>${bread}</span> is NOT in the bread array.`);
+					}
+
+				});
+			});			
+		</script>
+	</head>
+	<body>
+		Bread: <input type="text" id="bread">
+		<button id="checkButton">Check bread</button>
+		
+		<p id="feedback"></p>
+	</body>
+</html>

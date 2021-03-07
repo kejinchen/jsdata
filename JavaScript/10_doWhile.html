@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: do...while</title>      
+</head>
+<body>
+    <script>
+        window.onload = function(){ 
+            const SECRET_CODE = 128;
+            let password = '';
+            
+            do{
+                
+               password = prompt('To enter the Tibame programming club, please enter your secret code.');
+
+            }while(password != SECRET_CODE);
+                
+            alert('Congratuation! you are cured.');
+        }
+    </script>
+</body>
+</html>

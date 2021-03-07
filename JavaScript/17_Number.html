@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: Number 物件</title>      
+</head>
+<body>
+    1. JS只有一種數值形式
+       Number.MAX_VALUE   ---> 1.7976931348623157e+308
+       Number.MIN_VALUEE  ---> 5e-324
+    2. 與數值有關的運算子 : +、-、*、/、%、+=、-=、*=、/=、%=
+    3. 算術運算無效時，JS會傳回兩個特殊值: NaN、Infinity
+        num =   1 / 0      ---> Infinity
+        num =  -1 / 0      ---> -Infinity
+        num = 0.0 / 0.0    ---> NaN
+        num = 2 * '10ab'   ---> NaN
+    4. 避免無效運算
+        if(isNaN(num))
+        if(isFinite(num))
+    5. 方法: 
+        - toFixed() 格式化小數點的位數
+
+    <script>
+        window.onload = function(){
+       
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue -- 將陣列轉成元素</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <!-- <script src="./js/vue.js"></script> -->
+</head>
+<body>
+    <div id="app"> <!--HTML DOM template-->
+        <select name="月份">
+            <option v-for="month in months">{{month}}</option>
+        </select>
+        <select name="月份">
+            <option v-for="month in 12">{{month}}</option>
+        </select>
+        <select name="月份">
+            <!-- <option v-for="(month,index) in months" v-bind:value="index+1">{{month}}</option> -->
+            <option v-for="(month,index) in months" :value="index+1">{{month}}</option>
+
+        </select>
+        <select>
+            <option v-for="day in 31">{{day}}</option>
+        </select>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',     
+            data: {         // 變數存放的地方
+               months: ['January','February','March','April','May','June',
+                          'July','August','September','October','November','December'],
+            },
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: ES6 New Features -- spread operator</title>      
+</head>
+<body>    
+    <script>
+       function addNumbers(x,y,z){
+            console.log(x + y + z);
+       }
+
+       let nums = [5,6,7];
+    //    addNumbers(nums[0],nums[1],nums[2]);
+      //  addNumbers(5,6,7);  
+       addNumbers(...nums);  //three dots
+
+       let meats = ['bacon','ham'];
+
+    //    let food = ['apple','orange','kiwi'];
+    //    console.log(food);   //['apple','orange','kiwi']
+
+       let food = ['apple',...meats,'orange','kiwi'];
+       console.log(food);    // ["apple", "bacon", "ham", "orange", "kiwi"]
+    </script>
+</body>
+</html>

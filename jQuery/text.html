@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content_container{
+            position: relative;
+            border: 1px solid black;
+            width: 100%;
+        }
+        .content1, .content2, .content3, .content4, .content{
+            /* 預設的定位 */
+            position: absolute;
+            top: 0;
+            left: 0;
+        
+            /* 預設的透明度、z-index */
+            opacity: 0;
+            z-index: -1;
+            display: n;
+            /* 轉場 */
+            transition: opacity .5s;
+        }
+        /* 該區塊出現時，修改相關樣式 */
+        img{
+            display: none;
+        }
+        .-on{
+            position: static;
+            opacity: 1;
+            z-index: 1;
+            }
+    </style>
+</head>
+<body>
+    <div class="btndiv">
+        <button type="button" class="btn">按鈕1：出現內容1的部份</button>
+        <button type="button" class="btn">按鈕2：出現內容2的部份</button>
+        <button type="button" class="btn">按鈕3：出現內容3的部份</button>
+        <button type="button" class="btn">按鈕4：出現內容4的部份</button>
+      
+        <div class="content_container">
+            <div class="content -on">1
+                <div class="img">
+                    <img src="https://via.placeholder.com/100x100">
+                    <img src="https://via.placeholder.com/100x100">
+                    <img src="https://via.placeholder.com/100x100">
+                </div>
+                <div class="check">
+                    <label>
+                        <input type="checkbox" class="type">
+                        選項1
+                    </label>
+                    <label>
+                        <input type="checkbox" class="type">
+                        選項2
+                    </label>
+                    <label>
+                        <input type="checkbox" class="type">
+                        選項3
+                    </label>
+                </div>
+            </div> 
+            <div class="content">2
+                <img src="https://via.placeholder.com/100x100">
+                <img src="https://via.placeholder.com/100x100">
+                <img src="https://via.placeholder.com/100x100">
+                <label>
+                    <input type="checkbox" class="type">
+                    選項1
+                </label>
+                <label>
+                    <input type="checkbox" class="type">
+                    選項2
+                </label>
+                <label>
+                    <input type="checkbox" class="type">
+                    選項3
+                </label>
+            </div>
+            <div class="content">3
+                <img src="https://via.placeholder.com/100x100">
+                <img src="https://via.placeholder.com/100x100">
+                <img src="https://via.placeholder.com/100x100">
+                <label>
+                    <input type="checkbox" name="type" checked>
+                    選項1
+                </label>
+                <label>
+                    <input type="checkbox" name="type">
+                    選項2
+                </label>
+                <label>
+                    <input type="checkbox" name="type">
+                    選項3
+                </label>
+            </div>
+          <div class="content">4<img src="https://via.placeholder.com/100x100"></div>
+        </div>
+      </div>
+      
+      <p>這是下方內容</p>
+
+      <script src="./js/jquery-3.5.1.js"></script>
+      <script>
+        $(function(){
+            $('.btndiv .btn').each(function(index){
+                // $(this)[0].className+=index;
+                $(this).click(function(){
+                    // let content = `content${index}`;
+                    $('.content').removeClass("-on");
+                    $('.content_container div:eq('+index+')').addClass("-on");
+                });
+            
+        });
+        // $('.img input[type=checkbox]').each(function(idx){
+        //         alert(idx);
+        //     });
+            // var idx = $('input').index($(this));
+            // if ($(this)[0].checked)
+            // {
+            //     $('.s div:eq('+idx+')').show()
+            // }else{
+            //     $('.s div:eq('+idx+')').hide()
+            // }
+            // $(this).click(function(){
+            //     if ($(this)[0].checked)
+            //     {
+            //         $('.s div:eq('+idx+')').show()
+            //     }else{
+            //         $('.s div:eq('+idx+')').hide()
+            //     }
+            // })
+        
+        //     $('.content_container div:eq('+index+') input[type=checkbox]:checked')
+        //     $('input[type=checkbox]').each(function(CKindex){
+        //         if ($(this)[0].checked)
+        //         {
+        //             $('div:eq('+index+') img:eq('+CKindex+')').css("display","none")
+        //         }
+        //         else
+        //         {}
+        //     });
+        });
+      </script>
+</body>
+</html>

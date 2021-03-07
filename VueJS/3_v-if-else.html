@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <!-- <script src="./js/vue.js"></script> -->
+</head>
+<body>
+    <div id="app"> <!--HTML DOM template-->
+        <h1>What did you get in VueJS?</h1>
+        Your score: <input v-model="score">
+
+        <p v-if="score >= 70">PASS!</p>
+        <p v-else-if="score >= 50">Almoust pass!</p>
+        <p v-else>It's hard to pass.</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',     
+            data: {         // 變數存放的地方
+                message: 'Hello VueJS!',
+                score: 0,
+            },
+        });
+    </script>
+    
+</body>
+</html>

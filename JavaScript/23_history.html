@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: window.history 物件</title>      
+</head>
+<body>
+    Please <a href="http://www.google.com" id="backLink">go back</a> the previous window.
+
+    <script>
+        // history.go(-1);   //history.back();
+        // history.go(1);    //history.forward();
+
+        window.getElementById('backLink').onclick = function(){
+            // history.back();
+        };
+    </script>
+</body>
+</html>

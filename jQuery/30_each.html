@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+		<link rel="stylesheet" href="./css/style.css">
+		<script src="./js/jquery-3.5.1.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#combineButton').click(function(){
+                    // let theText = '';
+
+                    // $(':text').each(function(index,value){
+                    //     // alert(`${index} : ${value}`);
+                    //     theText += $(this).val() + ' ';
+                    // });
+                    // $('#feedback').text(theText);
+
+                    //判斷每一個欄位有沒有輸入
+                    let theText = '';
+                    let failed = false;
+                    $(':text').each(function(){
+                        if($(this).val() == ''){
+                            failed = true;
+                        }
+                    });
+
+                    if(failed == true){
+                        alert('Fill out all fields.');
+                    }else{
+                        alert('Thanks for filling out all fields.');
+                        $(':text').each(function(){
+                            theText += $(this).val() + ' ';
+                        });
+                    }
+                    $('#feedback').text(theText);
+                });
+			});			
+		</script>
+	</head>
+	<body>
+        <p>
+            <input type="text">
+            <input type="text">
+            <input type="text">
+            <!-- <input type="button" value="Combine" id="combineButton"> -->
+            <button id="combineButton">Combine</button>
+        </p>
+        <div id="feedback"></div>
+	</body>
+</html>

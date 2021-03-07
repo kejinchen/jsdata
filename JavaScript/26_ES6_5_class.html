@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: ES6 New Features -- class(類別)</title>      
+</head>
+<body>    
+    <script>
+        class Person{
+            constructor(name, age, gender, weight){
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+                this.weight = weight;
+            }
+            displayName(){
+                console.log(this.name);
+            }
+            displayWeight(){
+                console.log(this.weight);
+            }
+        }
+
+        let peter = new Person('Peter Atley',40,'male',70);
+        peter.displayName();
+        peter.displayWeight();
+
+        let sally = new Person('Sally Wang',25,'female',48.5);
+        sally.displayName();
+
+        let annie = new Person('Annie',20,'',50);
+        annie.displayName();
+        annie.displayWeight();
+
+
+    </script>
+</body>
+</html>

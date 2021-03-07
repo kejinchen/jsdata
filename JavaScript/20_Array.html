@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript: Array 物件</title>      
+</head>
+<body>
+    1. 建立陣列物件
+        let arr = [];
+        let arr = new Array();
+
+        let arr = [2,4,6,false,new String('ABC')];
+        let arr = new Array(2,4,6,false,new String('ABC'));
+    
+    2. 如何存取?
+        arr[0]  ---> 2
+        arr[3]  ---> false
+        
+        for(let i = 0; i < arr.length; i++){
+            console.log(arr[i])
+        }    
+    
+    3. 屬性: length
+
+    4. 方法: 
+        - indexOf()
+        - push(item) | pop()
+        - unshift(item) | shift()
+        - join() 陣列組成字串
+        - splice(index, 刪除的筆數) 可以刪除
+        - splice(index, 刪除的筆數, 新增1, 新增2, 新增2, ...) 可以新增
+            ex.months.splice(2,0,100,200,300)
+               ---> ['January','February',100,200,300,'March','April','May','June','July','August','September','October','November','December']
+        
+        - 刪除陣列元素 delete arr[2]
+    <script>
+        window.onload = function(){
+            let people = ['Andy','Brian','Cathy','Danny','Ella'];
+            
+            for(let i = 0; i < people.length; i++){
+                document.write(`${people[i]}<br>`);
+            }
+
+            document.write(`${people.length}<br>`);
+            document.write(`<hr>`);
+
+            let months = ['January','February','March','April','May','June',
+                          'July','August','September','October','November','December'];
+            
+            document.write(`${months.indexOf('December')}<br>`);
+            let glueItem = months.join(' - ');   //glueItem是字串型態
+            document.write(glueItem + '<br>');
+
+            let originalArray = glueItem.split(' - ');  //originalArray是陣列型態
+            for(let i = 0; i < originalArray.length; i++){
+                document.write(originalArray[i] + '<br>');
+            }
+            document.write(`<hr>`);
+
+            
+        }
+    </script>
+</body>
+</html>

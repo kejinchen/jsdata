@@ -1,0 +1,35 @@
+*{
+    font: 18px Tahoma;
+}
+body{
+    background: #aaa;
+}
+#theForm{
+    background: #fff;
+    width: 270px;
+    padding: 10px;
+    border: 1px solid #bbb;
+    margin: 50px;
+}
+#theForm div{
+    margin: 8px 0px;
+}
+input[type="submit"]{
+    text-transform: capitalize;
+}
+p{
+    font: 12px Tahoma;
+    color: steelblue;
+}
+#count{
+    width: 230px;
+}
+#result{
+    border: 1px solid maroon;
+    /* width: 236px; */
+    /* height: 150px; */
+    font-size: 16px;
+    color: maroon;
+    /* text-align: center;
+    line-height: 50px; */
+}

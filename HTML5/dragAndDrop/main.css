@@ -1,0 +1,18 @@
+#leftbox{
+    width: 240px;
+    height: 240px;
+    border: 3px dotted red;
+    padding: 10px;
+    margin: 5px;
+
+    float: left;
+}
+#rightbox{
+    width: 240px;
+    height: 240px;
+    border: 3px dotted green;
+    padding: 10px;
+    margin: 5px;
+
+    float: left;
+}
